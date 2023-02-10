@@ -1,0 +1,10 @@
+$princinpal_color: #ff5733;
+$second_color: #9BF50F;
+$third_color: #1857F5;
+$light_color: lighten($princinpal_color, 10);
+$dark_color: darken($princinpal_color, 30);
+$personnal_black: desaturate(darken($dark_color, 25), 40);
+$personnal_grey: desaturate($princinpal_color, 80);
+$personnal_white: desaturate(lighten($light_color, 40), 40);
+$background_color: desaturate($dark_color, 75);
+$light_background_color: desaturate(lighten($light_color, 27), 75);

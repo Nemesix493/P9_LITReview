@@ -1,0 +1,17 @@
+body{
+    margin:0;
+    padding:0;
+    color: $personnal_black;
+    background-color: $personnal_white;
+}
+h1, h2, h3, h4{
+    font-family: $arial;
+}
+a{
+    color: $princinpal_color;
+    text-decoration: none;
+    &:hover{
+        color: $second_color;
+        text-decoration: underline;
+    }
+}

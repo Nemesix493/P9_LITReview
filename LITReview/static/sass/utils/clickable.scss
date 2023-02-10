@@ -1,0 +1,12 @@
+@mixin classic-button{
+    min-width: 150px;
+    border: none;
+    border-radius: 999px;
+    padding: 5px;
+    background-color: $light_color;
+    color: $personnal_white;
+    font-weight: 600;
+    &:hover{
+        background-color: $princinpal_color;
+    }
+}

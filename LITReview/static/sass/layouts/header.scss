@@ -1,0 +1,17 @@
+.header{
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    color: $personnal_white;
+    font-family: $arial;
+    background-color: $background_color;
+    div, nav{
+        width: 30%;
+    }
+    div{
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

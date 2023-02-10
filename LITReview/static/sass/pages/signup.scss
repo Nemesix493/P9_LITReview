@@ -1,0 +1,29 @@
+.signup-page{
+    display:flex;
+    justify-content: center;
+    &__section{
+        border: 1px solid $personnal_grey;
+        border-radius: 10px;
+        background-color: $light_background_color;
+        padding:20px;
+        margin:100px;
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &__title{
+            margin:20;
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            input{
+                margin-top: 20px;
+                width: 200px;
+                &[type=submit]{
+                    @include classic-button;
+                }
+            }
+        }
+    }
+}

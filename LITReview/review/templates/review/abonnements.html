@@ -1,0 +1,35 @@
+{% extends 'review/base.html' %}
+
+{% block page_name %}Flux{% endblock %}
+
+{% block nav_content %}
+<nav>
+    <ul class="nav">
+        <a href="{% url 'flux' %}" class="nav__link"><li>Flux</li></a>
+        <a href="{% url 'posts' %}" class="nav__link"><li>Posts</li></a>
+        <a href="{% url 'abonnements' %}" class="nav__link active"><li>Abonnements</li></a>
+        <a href="" class="nav__link"><li>Se déconnecter</li></a>
+    </ul>
+</nav>
+{% endblock %}
+
+{% block main_content %}
+<main class="flux-page">
+    <section class="flux-page__content">
+        <div class="flux-page__content__actions">
+            <a href=""><button>Demander une critique</button></a>
+            <a href=""><button>Créer une critique</button></a>
+        </div>
+        {% for i in length %}
+        <article class="flux-page__content__article">
+            <div class="flux-page__content__article__head">
+                <p>Vous avez demandez un ticket</p>
+                <p>date de la demande</p>
+            </div>
+            <h4>lkjhdflkhjsmldfkj : {{ i }} stars</h4>
+            <p>Commentaire</p>
+        </article>
+        {% endfor %}
+    </section>
+</main>
+{% endblock %}
