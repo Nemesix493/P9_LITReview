@@ -15,4 +15,4 @@ def posts(request):
     return render(request, 'review/flux.html')
 
 def follows(request):
-    return render(request, 'review/abonnements.html')
+    return render(request, 'review/abonnements.html', context={'length':[i for i in range(10)]})

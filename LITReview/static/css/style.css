@@ -190,4 +190,14 @@ a:hover {
   justify-content: space-between;
 }
 
+.follow-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border: 1px solid black;
+  color: red;
+}
+
 /*# sourceMappingURL=style.css.map */

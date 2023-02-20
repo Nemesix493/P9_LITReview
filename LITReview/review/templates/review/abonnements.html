@@ -1,6 +1,6 @@
 {% extends 'review/base.html' %}
 
-{% block page_name %}Flux{% endblock %}
+{% block page_name %}Abonnements{% endblock %}
 
 {% block nav_content %}
 <nav>
@@ -14,22 +14,34 @@
 {% endblock %}
 
 {% block main_content %}
-<main class="flux-page">
-    <section class="flux-page__content">
-        <div class="flux-page__content__actions">
-            <a href=""><button>Demander une critique</button></a>
-            <a href=""><button>Créer une critique</button></a>
-        </div>
-        {% for i in length %}
-        <article class="flux-page__content__article">
-            <div class="flux-page__content__article__head">
-                <p>Vous avez demandez un ticket</p>
-                <p>date de la demande</p>
-            </div>
-            <h4>lkjhdflkhjsmldfkj : {{ i }} stars</h4>
-            <p>Commentaire</p>
-        </article>
-        {% endfor %}
+<main class="follow-page">
+    <section class="follow-page__follow">
+        <h2>Suivre d'autre utilisateurs</h2>
+        <form action="">
+            <input type="text" placeholder="Nom d'utilisateur">
+            <input type="submit" value="Envoyer">
+        </form>
+    </section>
+    <section class="follow-page__following">
+        <h2>Abbonnements</h2>
+        <table>
+            {% for i in length %}
+            <tr>
+                <td>user {{i}}</td>
+                <td>Désabonner</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </section>
+    <section class="follow-page__followers">
+        <h2>Abonnés</h2>
+        <table>
+            {% for i in length %}
+            <tr>
+                <td>user {{i}}</td>
+            </tr>
+            {% endfor %}
+        </table>
     </section>
 </main>
 {% endblock %}
