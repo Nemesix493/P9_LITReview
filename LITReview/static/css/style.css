@@ -93,6 +93,17 @@ a:hover {
 .login-page__section form input[type=submit]:hover {
   background-color: #ff5733;
 }
+.login-page__section form input[type=text], .login-page__section form input[type=password] {
+  border: 1px solid #ad8c85;
+  border-radius: 2px;
+}
+.login-page__section form input[type=text]:focus, .login-page__section form input[type=password]:focus {
+  outline-color: #ad8c85;
+  outline-width: 1px;
+  outline-offset: 2px;
+  outline-style: solid;
+  border: 2px solid #ff8166;
+}
 .login-page__section button {
   min-width: 150px;
   border: none;
@@ -143,6 +154,17 @@ a:hover {
 }
 .signup-page__section form input[type=submit]:hover {
   background-color: #ff5733;
+}
+.signup-page__section form input[type=text], .signup-page__section form input[type=password] {
+  border: 1px solid #ad8c85;
+  border-radius: 2px;
+}
+.signup-page__section form input[type=text]:focus, .signup-page__section form input[type=password]:focus {
+  outline-color: #ad8c85;
+  outline-width: 1px;
+  outline-offset: 2px;
+  outline-style: solid;
+  border: 2px solid #ff8166;
 }
 
 .flux-page {
@@ -196,8 +218,73 @@ a:hover {
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  padding-bottom: 50px;
+}
+.follow-page > section {
+  margin-top: 50px;
+  border: 1px solid #ad8c85;
+  background-color: #f9f6f5;
+  border-radius: 10px;
+  padding-bottom: 30px;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.follow-page > section > * {
+  margin: 0;
+  margin-top: 30px;
+}
+.follow-page > section table, .follow-page > section tr, .follow-page > section td {
+  border: 1px solid #140805;
+  border-collapse: collapse;
+}
+.follow-page > section table {
+  width: 75%;
+}
+.follow-page > section table tr > td:nth-child(2) {
+  width: 125px;
+  text-align: center;
+}
+.follow-page > section table td {
+  padding: 3px;
+}
+.follow-page > section form {
+  display: flex;
+  justify-content: center;
+  width: 75%;
+}
+.follow-page > section form input {
+  margin-left: 20px;
+}
+.follow-page > section form input[type=submit] {
+  min-width: 150px;
+  border: none;
+  border-radius: 999px;
+  padding: 5px;
+  background-color: #ff8166;
+  color: white;
+  font-weight: 600;
+}
+.follow-page > section form input[type=submit]:hover {
+  background-color: #ff5733;
+}
+.follow-page > section form input[type=text] {
+  border: 1px solid #ad8c85;
+  border-radius: 2px;
+  width: 50%;
+}
+.follow-page > section form input[type=text]:focus {
+  outline-color: #ad8c85;
+  outline-width: 1px;
+  outline-offset: 2px;
+  outline-style: solid;
+  border: 2px solid #ff8166;
+}
+
+.posts-page__posts {
+  border-radius: 5px;
   border: 1px solid black;
-  color: red;
 }
 
 /*# sourceMappingURL=style.css.map */

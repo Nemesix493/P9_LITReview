@@ -1,0 +1,11 @@
+@mixin input-text{
+    border: 1px solid $personnal_grey;
+    border-radius: 2px;
+    &:focus{
+        outline-color: $personnal_grey;
+        outline-width: 1px;
+        outline-offset: 2px;
+        outline-style: solid;
+        border: 2px solid $light_color;
+    }
+}

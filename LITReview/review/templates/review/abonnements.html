@@ -8,7 +8,7 @@
         <a href="{% url 'flux' %}" class="nav__link"><li>Flux</li></a>
         <a href="{% url 'posts' %}" class="nav__link"><li>Posts</li></a>
         <a href="{% url 'abonnements' %}" class="nav__link active"><li>Abonnements</li></a>
-        <a href="" class="nav__link"><li>Se déconnecter</li></a>
+        <a href="{% url 'logout' %}" class="nav__link"><li>Se déconnecter</li></a>
     </ul>
 </nav>
 {% endblock %}
@@ -17,13 +17,13 @@
 <main class="follow-page">
     <section class="follow-page__follow">
         <h2>Suivre d'autre utilisateurs</h2>
-        <form action="">
+        <form action="" method="post">
             <input type="text" placeholder="Nom d'utilisateur">
             <input type="submit" value="Envoyer">
         </form>
     </section>
     <section class="follow-page__following">
-        <h2>Abbonnements</h2>
+        <h2>Abonnements</h2>
         <table>
             {% for i in length %}
             <tr>

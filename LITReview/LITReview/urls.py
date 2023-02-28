@@ -16,12 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from review import views
+from django.contrib.auth.views import LoginView, LogoutView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('signup/', views.signup, name='signup'),
-    path('signin/', views.signin, name='signin'),
+    path('signin/', LoginView.as_view(
+        template_name='review/signin.html',
+        redirect_authenticated_user=True
+    ), name='signin'),
     path('flux/', views.flux, name='flux'),
     path('posts/', views.posts, name='posts'),
-    path('abonnements/', views.follows, name='abonnements')
+    path('follow/', views.follows, name='abonnements'),
+    path('logout/', LogoutView.as_view() ,name='logout')
 ]

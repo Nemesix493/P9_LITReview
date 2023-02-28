@@ -1,7 +1,16 @@
+// Utils
+
 @import "./utils/colors";
 @import "./utils/fonts";
 @import "./utils/clickable";
+@import "./utils/forms";
+
+// Base
+
 @import "./base/base";
+
+// Layouts
+
 @import "./layouts/header";
 @import "./layouts/nav";
 
@@ -11,3 +20,4 @@
 @import "./pages/signup";
 @import "./pages/flux";
 @import "./pages/follow";
+@import "./pages/posts";

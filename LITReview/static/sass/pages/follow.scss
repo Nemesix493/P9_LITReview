@@ -4,6 +4,49 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    border: 1px solid black;
-    color: red;
+    padding-bottom: 50px;
+    &> section{
+        margin-top: 50px;
+        border: 1px solid $personnal_grey;
+        background-color: $light_background_color;
+        border-radius: 10px;
+        padding-bottom: 30px;
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &> *{
+            margin: 0;
+            margin-top: 30px;
+        }
+        table, tr, td{
+            border: 1px solid $personnal_black;
+            border-collapse: collapse;
+        }
+        table{
+            width: 75%;
+            tr > td:nth-child(2){
+                width: 125px;
+                text-align: center;
+            }
+            td{
+                padding: 3px;
+            }
+        }
+        form{
+            display: flex;
+            justify-content: center;
+            width: 75%;
+            input{
+                margin-left: 20px;
+                &[type=submit]{
+                    @include classic-button;
+                }
+                &[type=text]{
+                    @include input-text;
+                    width:50%;
+                }
+            }
+        }
+    }
 }
