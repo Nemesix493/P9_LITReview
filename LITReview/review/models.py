@@ -5,6 +5,7 @@ class User(AbstractUser):
     follows = models.ManyToManyField(
         'self',
         through='UserFollows',
+        related_name='followers',
         through_fields=('user', 'followed_user'),
         symmetrical=False
     )
@@ -16,7 +17,7 @@ class UserFollows(models.Model):
     )
     followed_user = models.ForeignKey(
         User,
-        related_name='followers',
+        related_name='follower_relation',
         on_delete=models.CASCADE
     )
 

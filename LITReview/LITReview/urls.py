@@ -28,5 +28,7 @@ urlpatterns = [
     path('flux/', views.flux, name='flux'),
     path('posts/', views.posts, name='posts'),
     path('follow/', views.follows, name='abonnements'),
+    path('follow-user/', views.follow_user, name='follow_user'),
+    path('unfollow/<int:id>/', views.unfollow, name='unfollow'),
     path('logout/', LogoutView.as_view() ,name='logout')
 ]

@@ -17,18 +17,20 @@
 <main class="follow-page">
     <section class="follow-page__follow">
         <h2>Suivre d'autre utilisateurs</h2>
-        <form action="" method="post">
-            <input type="text" placeholder="Nom d'utilisateur">
+        <form action="{% url 'follow_user' %}" method="post">
+            {% csrf_token %}
+            {{form}}
+            <!--<input type="text" placeholder="Nom d'utilisateur">-->
             <input type="submit" value="Envoyer">
         </form>
     </section>
     <section class="follow-page__following">
         <h2>Abonnements</h2>
         <table>
-            {% for i in length %}
+            {% for follow in follows %}
             <tr>
-                <td>user {{i}}</td>
-                <td>Désabonner</td>
+                <td>{{follow.username|capfirst}}</td>
+                <td><a href="{% url 'unfollow' follow.id %}">Désabonner</a></td>
             </tr>
             {% endfor %}
         </table>
@@ -36,10 +38,10 @@
     <section class="follow-page__followers">
         <h2>Abonnés</h2>
         <table>
-            {% for i in length %}
-            <tr>
-                <td>user {{i}}</td>
-            </tr>
+            {% for follower in followers %}
+                <tr>
+                    <td>{{follower.username}}</td>
+                </tr>
             {% endfor %}
         </table>
     </section>
