@@ -34,7 +34,8 @@ urlpatterns = [
     path('unfollow/<int:id>/', views.unfollow, name='unfollow'),
     path('logout/', LogoutView.as_view() ,name='logout'),
     path('ticket/<int:id>/', views.ticket, name='ticket'),
-    path('new-ticket', views.new_ticket, name='new-ticket')
+    path('new-ticket', views.new_ticket, name='new-ticket'),
+    path('ticket-answer/<int:id>/', views.ticket_answer, name='ticket-answer')
 ]
 
 if settings.DEBUG:

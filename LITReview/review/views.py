@@ -79,3 +79,9 @@ def new_ticket(request):
 @login_required
 def ticket(request, id):
     return render(request, 'review/ticket.html', context={'ticket':Ticket.objects.get(id=id)})
+
+
+@login_required
+def ticket_answer(request, id):
+    context={'ticket':Ticket.objects.get(id=id)}
+    return render(request, 'review/ticket-answer.html', context=context)

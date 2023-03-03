@@ -33,6 +33,7 @@
             <h3>{{ ticket.title|capfirst }}</h3>
             <p>{{ticket.description}}</p>
             <img src="{{ticket.image.url}}" alt="">
+            <a href="{% url 'ticket-answer' ticket.id %}"><button>Répondre</button></a>
         </article>
         {% endfor %}
     </section>

@@ -1,0 +1,26 @@
+@mixin ticket{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid $personnal_grey;
+    margin-top: 50px;
+    background-color: $light_background_color;
+    border-radius: 10px;
+    div{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    img{
+        max-width: 90%;
+        max-height: 400px;
+        aspect-ratio: initial;
+    }
+    &__description{
+        width: 90%;
+    }
+
+}

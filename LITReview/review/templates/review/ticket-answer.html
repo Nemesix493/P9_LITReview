@@ -14,8 +14,8 @@
 {% endblock %}
 
 {% block main_content %}
-<main class="ticket-page">
-    <article class="ticket-page__ticket">
+<main class="ticket-answer-page">
+    <article class="ticket-answer-page__ticket">
         <div>
             {% if ticket.user == request.user %}
             <p>Vous avez demandez un ticket</p>
@@ -27,6 +27,9 @@
         <h2>{{ticket.title}}</h2>
         <p class="ticket-page__ticket__description">{{ticket.description}}</p>
         <img src="{{ticket.image.url}}" alt="">
+    </article>
+    <article class="ticket-answer-page__answer-form">
+
     </article>
 </main>
 {% endblock %}
