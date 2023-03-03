@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path
 from review import views
 from django.contrib.auth.views import LoginView, LogoutView
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,5 +32,10 @@ urlpatterns = [
     path('follow/', views.follows, name='abonnements'),
     path('follow-user/', views.follow_user, name='follow_user'),
     path('unfollow/<int:id>/', views.unfollow, name='unfollow'),
-    path('logout/', LogoutView.as_view() ,name='logout')
+    path('logout/', LogoutView.as_view() ,name='logout'),
+    path('ticket/<int:id>/', views.ticket, name='ticket'),
+    path('new-ticket', views.new_ticket, name='new-ticket')
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

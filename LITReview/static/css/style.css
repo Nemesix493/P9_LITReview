@@ -216,12 +216,21 @@ a:hover {
   background-color: #f9f6f5;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 .flux-page__content__article__head {
-  margin-top: 0;
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+.flux-page__content__article img {
+  max-width: 90%;
+  max-height: 400px;
+  aspect-ratio: initial;
+}
+.flux-page__content__article__description {
+  width: 90%;
 }
 
 .follow-page {
@@ -297,6 +306,75 @@ a:hover {
 .posts-page__posts {
   border-radius: 5px;
   border: 1px solid black;
+}
+
+.ticket-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.ticket-page__ticket {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #ad8c85;
+  margin-top: 50px;
+  background-color: #f9f6f5;
+  border-radius: 10px;
+}
+.ticket-page__ticket div {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.ticket-page__ticket img {
+  max-width: 90%;
+  max-height: 400px;
+  aspect-ratio: initial;
+}
+.ticket-page__ticket__description {
+  width: 90%;
+}
+
+.new-ticket-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.new-ticket-page__content {
+  padding: 20px;
+  border: 1px solid #ad8c85;
+  margin-top: 50px;
+  background-color: #f9f6f5;
+  border-radius: 10px;
+}
+.new-ticket-page__content h2 {
+  text-align: center;
+}
+.new-ticket-page__content form {
+  margin-top: 20px;
+  display: flex;
+  height: 400px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.new-ticket-page__content form input[type=text], .new-ticket-page__content form textarea {
+  border: 1px solid #ad8c85;
+  border-radius: 2px;
+}
+.new-ticket-page__content form input[type=text]:focus, .new-ticket-page__content form textarea:focus {
+  outline-color: #ad8c85;
+  outline-width: 1px;
+  outline-offset: 2px;
+  outline-style: solid;
+  border: 2px solid #ff8166;
+}
+.new-ticket-page__content form label {
+  display: none;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -2,6 +2,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model
 from django import forms
 
+from .models import Ticket
+
 class SignupForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = get_user_model()
@@ -40,3 +42,7 @@ class FollowUserForm(forms.Form):
         self.user.follows.add(User.objects.get(id=self.data['follow']))
 
 
+class NewTicketForm(forms.ModelForm):
+    class Meta:
+        model = Ticket
+        fields = ['title', 'description', 'image']

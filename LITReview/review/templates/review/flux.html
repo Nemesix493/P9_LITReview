@@ -17,17 +17,22 @@
 <main class="flux-page">
     <section class="flux-page__content">
         <div class="flux-page__content__actions">
-            <a href=""><button>Demander une critique</button></a>
+            <a href="{% url 'new-ticket' %}"><button>Demander une critique</button></a>
             <a href=""><button>Créer une critique</button></a>
         </div>
-        {% for i in length %}
+        {% for ticket in tickets %}
         <article class="flux-page__content__article">
             <div class="flux-page__content__article__head">
+                {% if ticket.user == request.user %}
                 <p>Vous avez demandez un ticket</p>
-                <p>date de la demande</p>
+                {% else %}
+                <p>{{ticket.user.username}} a demandez un ticket</p>
+                {% endif%}
+                <p>{{ticket.time_created_as_text}}</p>
             </div>
-            <h4>lkjhdflkhjsmldfkj : {{ i }} stars</h4>
-            <p>Commentaire</p>
+            <h3>{{ ticket.title|capfirst }}</h3>
+            <p>{{ticket.description}}</p>
+            <img src="{{ticket.image.url}}" alt="">
         </article>
         {% endfor %}
     </section>

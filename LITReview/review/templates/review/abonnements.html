@@ -20,7 +20,6 @@
         <form action="{% url 'follow_user' %}" method="post">
             {% csrf_token %}
             {{form}}
-            <!--<input type="text" placeholder="Nom d'utilisateur">-->
             <input type="submit" value="Envoyer">
         </form>
     </section>
@@ -31,6 +30,7 @@
             <tr>
                 <td>{{follow.username|capfirst}}</td>
                 <td><a href="{% url 'unfollow' follow.id %}">Désabonner</a></td>
+                
             </tr>
             {% endfor %}
         </table>
