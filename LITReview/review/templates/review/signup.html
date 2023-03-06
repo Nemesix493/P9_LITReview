@@ -5,15 +5,8 @@
     <section class="signup-page__section">
         <h2 class="signup-page__section__title">Inscrivez-vous</h2>
         <form action="" method="post">
-            <!--
-                {% for field in form %}
-                {{field}}
-                {{ field.errors }}
-                {% endfor %}
-            -->
             {% csrf_token %}
             {{form}}
-            
             <input type="submit">
         </form>
     </section>

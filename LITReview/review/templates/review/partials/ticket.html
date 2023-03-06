@@ -13,10 +13,10 @@
     <img src="{{ticket.image.url}}" alt="">
     <div class="ticket__foot">
         {% if not ticket in request.user|all_reviewed %}
-        <a href="{% url 'ticket-answer' ticket.id %}"><button>Répondre</button></a>
+        <a href="{% url 'ticket-answer' ticket.id %}"><button class="classic-button">Répondre</button></a>
         {% endif%}
         {% if ticket.user == request.user %}
-        <a href="{% url 'ticket' ticket.id %}"><button>Modifier</button></a>
+        <a href="{% url 'modify-ticket' ticket.id %}"><button class="classic-button">Modifier</button></a>
         {% endif%}
     </div>
 </article>

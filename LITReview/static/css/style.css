@@ -102,6 +102,20 @@ a:hover {
   width: 90%;
 }
 
+.classic-button {
+  margin: 10px;
+  min-width: 150px;
+  border: none;
+  border-radius: 999px;
+  padding: 5px;
+  background-color: #ff8166;
+  color: white;
+  font-weight: 600;
+}
+.classic-button:hover {
+  background-color: #ff5733;
+}
+
 .login-page {
   display: flex;
   justify-content: center;
@@ -129,6 +143,7 @@ a:hover {
   margin-top: 20px;
 }
 .login-page__section form input[type=submit] {
+  margin: 10px;
   min-width: 150px;
   border: none;
   border-radius: 999px;
@@ -152,6 +167,7 @@ a:hover {
   border: 2px solid #ff8166;
 }
 .login-page__section button {
+  margin: 10px;
   min-width: 150px;
   border: none;
   border-radius: 999px;
@@ -200,6 +216,7 @@ a:hover {
   width: 200px;
 }
 .signup-page__section form input[type=submit] {
+  margin: 10px;
   min-width: 150px;
   border: none;
   border-radius: 999px;
@@ -241,6 +258,7 @@ a:hover {
   justify-content: space-around;
 }
 .flux-page__content__actions button {
+  margin: 10px;
   min-width: 150px;
   border: none;
   border-radius: 999px;
@@ -326,6 +344,7 @@ a:hover {
   margin-left: 20px;
 }
 .follow-page > section form input[type=submit] {
+  margin: 10px;
   min-width: 150px;
   border: none;
   border-radius: 999px;
@@ -404,7 +423,7 @@ a:hover {
 .new-ticket-page__content form {
   margin-top: 20px;
   display: flex;
-  height: 400px;
+  height: 800px;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
@@ -424,30 +443,18 @@ a:hover {
   display: none;
 }
 
-.ticket-answer-page__ticket {
-  width: 60%;
+.ticket-answer-page .ticket button {
+  display: none;
+}
+
+.error-page {
+  margin-top: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
-  border: 1px solid #ad8c85;
-  margin-top: 50px;
-  background-color: #f9f6f5;
-  border-radius: 10px;
 }
-.ticket-answer-page__ticket div {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-.ticket-answer-page__ticket img {
-  max-width: 90%;
-  max-height: 400px;
-  aspect-ratio: initial;
-}
-.ticket-answer-page__ticket__description {
-  width: 90%;
+.error-page img {
+  width: 60%;
 }
 
 /*# sourceMappingURL=style.css.map */

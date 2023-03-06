@@ -1,5 +1,7 @@
 .ticket-answer-page{
-    &__ticket{
-        @include ticket;
+    .ticket{
+        button{
+            display: none;
+        }
     }
 }

@@ -26,3 +26,7 @@ a{
 .ticket{
     @include ticket;
 }
+
+.classic-button{
+    @include classic-button;
+}

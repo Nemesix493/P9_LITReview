@@ -42,12 +42,12 @@ class FollowUserForm(forms.Form):
         self.user.follows.add(User.objects.get(id=self.data['follow']))
 
 
-class NewTicketForm(forms.ModelForm):
+class TicketForm(forms.ModelForm):
     class Meta:
         model = Ticket
         fields = ['title', 'description', 'image']
 
-class TicketAnswerForm(forms.ModelForm):
+class ReviewForm(forms.ModelForm):
     class Meta:
         model = Review
         fields = ['headline', 'body', 'rating']

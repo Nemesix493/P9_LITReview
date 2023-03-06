@@ -11,6 +11,10 @@ def poster(context, user):
 
 
 @register.filter
+def ticket_or_review(instance):
+    return type(instance).__name__
+
+@register.filter
 def all_reviewed(user):
     return [review.ticket for review in user.reviews.all()]
 

@@ -1,0 +1,15 @@
+{% extends 'review/base.html' %}
+
+{% block main_content %}
+<main class="new-ticket-page">
+    <section class="new-ticket-page__content">
+        <h2>{{page_name}}</h2>
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ticket_form}}
+            {{review_form}}
+            <input type="submit" value="Envoyer" class="classic-button">
+        </form>
+    </section>
+</main>
+{% endblock %}

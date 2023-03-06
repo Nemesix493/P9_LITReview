@@ -39,9 +39,15 @@ urlpatterns = [
     path('logout/', LogoutView.as_view() ,name='logout'),
     path('ticket/<int:id>/', views.ticket, name='ticket'),
     path('new-ticket', views.new_ticket, name='new-ticket'),
+    path('update-ticket/<int:id>/', views.modify_ticket, name='modify-ticket'),
     path('ticket-answer/<int:id>/', views.ticket_answer, name='ticket-answer'),
-    path('review/<int:id>/', views.review, name='review')
+    path('review/<int:id>/', views.review, name='review'),
+    path('update-review/<int:id>/', views.modify_review, name='modify-review'),
+    path('new-review/', views.new_review, name='new-review')
 ]
+
+handler404 = views.custom_404
+
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

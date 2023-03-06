@@ -11,6 +11,6 @@
     <p>{{review.body}}</p>
     {% include 'review/partials/ticket.html' with ticket=review.ticket %}
     {% if review.user == request.user %}
-    <a href="{% url 'review' review.id %}"><button>Modifier</button></a>
+    <a href="{% url 'modify-review' review.id %}"><button class="classic-button">Modifier</button></a>
     {% endif%}
 </article>
