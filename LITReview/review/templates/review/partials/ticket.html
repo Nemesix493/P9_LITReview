@@ -1,0 +1,22 @@
+{% load review_extras %}
+<article class="ticket">
+    <div class="ticket__head">
+        {% if ticket.user == request.user %}
+        <p>Vous avez demandez un ticket</p>
+        {% else %}
+        <p>{{ticket.user.username|capfirst}} a demandez un ticket</p>
+        {% endif%}
+        <p>{{ticket.time_created_as_text}}</p>
+    </div>
+    <h2>{{ticket.title}}</h2>
+    <p class="ticket__description">{{ticket.description}}</p>
+    <img src="{{ticket.image.url}}" alt="">
+    <div class="ticket__foot">
+        {% if not ticket in request.user|all_reviewed %}
+        <a href="{% url 'ticket-answer' ticket.id %}"><button>Répondre</button></a>
+        {% endif%}
+        {% if ticket.user == request.user %}
+        <a href="{% url 'ticket' ticket.id %}"><button>Modifier</button></a>
+        {% endif%}
+    </div>
+</article>

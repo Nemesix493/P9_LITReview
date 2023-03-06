@@ -1,0 +1,13 @@
+{% load review_extras %}
+{% if menu is None %}
+<div></div>
+{% else %}
+<nav>
+    <ul class="nav">
+        <a href="{% url 'flux' %}" class="nav__link{% feedback_menu 'flux' %}"><li>Flux</li></a>
+        <a href="{% url 'posts' %}" class="nav__link{% feedback_menu 'posts' %}"><li>Posts</li></a>
+        <a href="{% url 'follow' %}" class="nav__link{% feedback_menu 'follows' %}"><li>Abonnements</li></a>
+        <a href="{% url 'logout' %}" class="nav__link"><li>Se déconnecter</li></a>
+    </ul>
+</nav>
+{% endif%}

@@ -1,0 +1,7 @@
+{% extends 'review/base.html' %}
+
+{% block main_content %}
+<main class="review-page">
+    {% include 'review/partials/review.html' with review=review %}
+</main>
+{% endblock %}

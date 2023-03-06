@@ -1,18 +1,5 @@
 {% extends 'review/base.html' %}
 
-{% block page_name %}Flux{% endblock %}
-
-{% block nav_content %}
-<nav>
-    <ul class="nav">
-        <a href="{% url 'flux' %}" class="nav__link"><li>Flux</li></a>
-        <a href="{% url 'posts' %}" class="nav__link active"><li>Posts</li></a>
-        <a href="{% url 'abonnements' %}" class="nav__link"><li>Abonnements</li></a>
-        <a href="{% url 'logout' %}" class="nav__link"><li>Se déconnecter</li></a>
-    </ul>
-</nav>
-{% endblock %}
-
 {% block main_content %}
 <main class="new-ticket-page">
     <section class="new-ticket-page__content">

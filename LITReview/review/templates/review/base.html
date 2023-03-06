@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <title>{% block page_name %}{% endblock %}</title>
+    <title>{{page_name}}</title>
 </head>
 <body>
     <header class="header">
@@ -14,7 +14,7 @@
         <div>
             <h1>LITReview</h1>
         </div>
-        {% block nav_content %}{% endblock %}
+        {% include 'review/partials/nav_menu.html' %}
     </header>
     {% block main_content %}{% endblock %}
 </body>

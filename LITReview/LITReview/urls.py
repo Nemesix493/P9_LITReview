@@ -25,17 +25,22 @@ urlpatterns = [
     path('signup/', views.signup, name='signup'),
     path('signin/', LoginView.as_view(
         template_name='review/signin.html',
-        redirect_authenticated_user=True
+        redirect_authenticated_user=True,
+        extra_context={
+            'page_name': 'Connexion',
+            'menu': None
+        }
     ), name='signin'),
     path('flux/', views.flux, name='flux'),
     path('posts/', views.posts, name='posts'),
-    path('follow/', views.follows, name='abonnements'),
+    path('follow/', views.follows, name='follow'),
     path('follow-user/', views.follow_user, name='follow_user'),
     path('unfollow/<int:id>/', views.unfollow, name='unfollow'),
     path('logout/', LogoutView.as_view() ,name='logout'),
     path('ticket/<int:id>/', views.ticket, name='ticket'),
     path('new-ticket', views.new_ticket, name='new-ticket'),
-    path('ticket-answer/<int:id>/', views.ticket_answer, name='ticket-answer')
+    path('ticket-answer/<int:id>/', views.ticket_answer, name='ticket-answer'),
+    path('review/<int:id>/', views.review, name='review')
 ]
 
 if settings.DEBUG:

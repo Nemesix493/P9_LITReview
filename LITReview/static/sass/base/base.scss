@@ -15,3 +15,14 @@ a{
         text-decoration: underline;
     }
 }
+
+.review{
+    @include review;
+    .ticket{
+        width: 90%;
+    }
+}
+
+.ticket{
+    @include ticket;
+}

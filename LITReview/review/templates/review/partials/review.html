@@ -1,0 +1,16 @@
+<article class="review">
+    <div>
+        {% if review.user == request.user %}
+        <p>Vous avez publié une critique</p>
+        {% else %}
+        <p>{{review.user.username|capfirst}} a publié une critique</p>
+        {% endif%}
+        <p>{{review.time_created_as_text}}</p>
+    </div>
+    <h2>{{review.headline}}</h2>
+    <p>{{review.body}}</p>
+    {% include 'review/partials/ticket.html' with ticket=review.ticket %}
+    {% if review.user == request.user %}
+    <a href="{% url 'review' review.id %}"><button>Modifier</button></a>
+    {% endif%}
+</article>
