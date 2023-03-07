@@ -3,7 +3,14 @@
     margin:0;
     list-style: none;
     display: flex;
+    flex-direction: row;
     justify-content: end;
+    @include tablet{
+        justify-content: center;
+    }
+    @include mobile{
+        justify-content: center;
+    }
     &__link{
         &:hover, &.active{
             background-color: $princinpal_color;

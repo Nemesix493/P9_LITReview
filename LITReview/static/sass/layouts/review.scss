@@ -1,5 +1,14 @@
 @mixin review{
     width: 60%;
+    @include tablet{
+        width: 75%;
+    }
+    @include mobile{
+        width: 90%;
+        .classic-button{
+            width: 150px;
+        }
+    }
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -13,5 +22,8 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+    }
+    &__description{
+        width: 80%;
     }
 }

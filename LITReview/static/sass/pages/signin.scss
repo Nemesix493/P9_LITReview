@@ -1,34 +1,50 @@
 .login-page{
     display:flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+    @include tablet{
+        flex-direction: column-reverse;
+    }
+    @include mobile{
+        flex-direction: column-reverse;
+    }
     &__section{
         border: 1px solid $personnal_grey;
         border-radius: 10px;
         background-color: $light_background_color;
         padding:20px;
-        margin:100px;
+        margin:100px 0px;
         width: 400px;
         display: flex;
         flex-direction: column;
         align-items: center;
+        @include mobile{
+            width: 300px;
+        }
         &__title{
-            margin:20;
+            margin-bottom: 0;
+            margin-top:20;
         }
         form{
             display: flex;
             flex-direction: column;
+            margin-top: 0;
             input{
                 margin-top: 20px;
                 &[type=submit]{
                     @include classic-button;
+                    margin-top: 20px;
                 }
                 &[type=text], &[type=password]{
                     @include input-text;
                 }
             }
+            label{
+                display: none;
+            }
         }
         button{
+
             @include classic-button;
         }
     }

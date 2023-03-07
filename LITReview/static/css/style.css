@@ -1,5 +1,5 @@
 .header {
-  height: 50px;
+  max-height: 50px;
   display: flex;
   justify-content: space-between;
   color: white;
@@ -14,13 +14,50 @@
   justify-content: center;
   align-items: center;
 }
+@media screen and (max-width: 1200px) and (min-width: 700px) {
+  .header {
+    flex-direction: column;
+    max-height: 100px;
+  }
+  .header div:first-child, .header div:nth-child(3) {
+    display: none;
+  }
+  .header div, .header nav {
+    width: 100%;
+    height: 50px;
+  }
+}
+@media screen and (max-width: 699px) {
+  .header {
+    flex-direction: column;
+    max-height: 100px;
+  }
+  .header div:first-child, .header div:nth-child(3) {
+    display: none;
+  }
+  .header div, .header nav {
+    width: 100%;
+    height: 50px;
+  }
+}
 
 .nav {
   height: 50px;
   margin: 0;
   list-style: none;
   display: flex;
+  flex-direction: row;
   justify-content: end;
+}
+@media screen and (max-width: 1200px) and (min-width: 700px) {
+  .nav {
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 699px) {
+  .nav {
+    justify-content: center;
+  }
 }
 .nav__link {
   display: flex;
@@ -66,14 +103,38 @@ a:hover {
   background-color: #f9f6f5;
   border-radius: 10px;
 }
+@media screen and (max-width: 1200px) and (min-width: 700px) {
+  .review {
+    width: 75%;
+  }
+}
+@media screen and (max-width: 699px) {
+  .review {
+    width: 90%;
+  }
+  .review .classic-button {
+    width: 150px;
+  }
+}
 .review div {
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
+.review__description {
+  width: 80%;
+}
 .review .ticket {
   width: 90%;
+}
+@media screen and (max-width: 699px) {
+  .review .ticket {
+    width: 95%;
+  }
+  .review .ticket .classic-button {
+    width: 125px;
+  }
 }
 
 .ticket {
@@ -87,6 +148,19 @@ a:hover {
   background-color: #f9f6f5;
   border-radius: 10px;
 }
+@media screen and (max-width: 1200px) and (min-width: 700px) {
+  .ticket {
+    width: 75%;
+  }
+}
+@media screen and (max-width: 699px) {
+  .ticket {
+    width: 90%;
+  }
+  .ticket .classic-button {
+    width: 150px;
+  }
+}
 .ticket div {
   width: 100%;
   display: flex;
@@ -99,7 +173,7 @@ a:hover {
   aspect-ratio: initial;
 }
 .ticket__description {
-  width: 90%;
+  width: 80%;
 }
 
 .classic-button {
@@ -114,30 +188,48 @@ a:hover {
 }
 .classic-button:hover {
   background-color: #ff5733;
+  transition: 0.3s;
 }
 
 .login-page {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+}
+@media screen and (max-width: 1200px) and (min-width: 700px) {
+  .login-page {
+    flex-direction: column-reverse;
+  }
+}
+@media screen and (max-width: 699px) {
+  .login-page {
+    flex-direction: column-reverse;
+  }
 }
 .login-page__section {
   border: 1px solid #ad8c85;
   border-radius: 10px;
   background-color: #f9f6f5;
   padding: 20px;
-  margin: 100px;
+  margin: 100px 0px;
   width: 400px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+@media screen and (max-width: 699px) {
+  .login-page__section {
+    width: 300px;
+  }
+}
 .login-page__section__title {
-  margin: 20;
+  margin-bottom: 0;
+  margin-top: 20;
 }
 .login-page__section form {
   display: flex;
   flex-direction: column;
+  margin-top: 0;
 }
 .login-page__section form input {
   margin-top: 20px;
@@ -151,9 +243,11 @@ a:hover {
   background-color: #ff8166;
   color: white;
   font-weight: 600;
+  margin-top: 20px;
 }
 .login-page__section form input[type=submit]:hover {
   background-color: #ff5733;
+  transition: 0.3s;
 }
 .login-page__section form input[type=text], .login-page__section form input[type=password] {
   border: 1px solid #ad8c85;
@@ -165,6 +259,10 @@ a:hover {
   outline-offset: 2px;
   outline-style: solid;
   border: 2px solid #ff8166;
+  transition: 0.1s;
+}
+.login-page__section form label {
+  display: none;
 }
 .login-page__section button {
   margin: 10px;
@@ -178,6 +276,7 @@ a:hover {
 }
 .login-page__section button:hover {
   background-color: #ff5733;
+  transition: 0.3s;
 }
 
 .signup-page {
@@ -189,11 +288,16 @@ a:hover {
   border-radius: 10px;
   background-color: #f9f6f5;
   padding: 20px;
-  margin: 100px;
+  margin: 100px 0px;
   width: 400px;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+@media screen and (max-width: 699px) {
+  .signup-page__section {
+    width: 300px;
+  }
 }
 .signup-page__section__title {
   margin: 20;
@@ -227,6 +331,7 @@ a:hover {
 }
 .signup-page__section form input[type=submit]:hover {
   background-color: #ff5733;
+  transition: 0.3s;
 }
 .signup-page__section form input[type=text], .signup-page__section form input[type=password] {
   border: 1px solid #ad8c85;
@@ -238,6 +343,7 @@ a:hover {
   outline-offset: 2px;
   outline-style: solid;
   border: 2px solid #ff8166;
+  transition: 0.1s;
 }
 .signup-page__section form input:focus + br + span {
   display: inline;
@@ -245,57 +351,34 @@ a:hover {
 
 .flux-page {
   display: flex;
-  justify-content: center;
-}
-.flux-page__content {
-  width: 60%;
+  flex-direction: column;
+  align-items: center;
   padding-bottom: 50px;
 }
-.flux-page__content__actions {
+.flux-page__actions {
+  width: 60%;
   margin-top: 50px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
-.flux-page__content__actions button {
-  margin: 10px;
-  min-width: 150px;
-  border: none;
-  border-radius: 999px;
-  padding: 5px;
-  background-color: #ff8166;
-  color: white;
-  font-weight: 600;
+.flux-page__actions .classic-button {
   width: 200px;
   height: 40px;
 }
-.flux-page__content__actions button:hover {
-  background-color: #ff5733;
+@media screen and (max-width: 1200px) and (min-width: 700px) {
+  .flux-page__actions {
+    width: 75%;
+  }
 }
-
-.flux-page__content__article {
-  padding: 20px;
-  border: 1px solid #ad8c85;
-  border-radius: 10px;
-  margin-top: 50px;
-  background-color: #f9f6f5;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.flux-page__content__article__head {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-.flux-page__content__article img {
-  max-width: 90%;
-  max-height: 400px;
-  aspect-ratio: initial;
-}
-.flux-page__content__article__description {
-  width: 90%;
+@media screen and (max-width: 699px) {
+  .flux-page__actions {
+    width: 90%;
+  }
+  .flux-page__actions .classic-button {
+    width: 150px;
+    height: 50px;
+  }
 }
 
 .follow-page {
@@ -317,6 +400,16 @@ a:hover {
   flex-direction: column;
   align-items: center;
 }
+@media screen and (max-width: 1200px) and (min-width: 700px) {
+  .follow-page > section {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 699px) {
+  .follow-page > section {
+    width: 80%;
+  }
+}
 .follow-page > section > * {
   margin: 0;
   margin-top: 30px;
@@ -326,14 +419,26 @@ a:hover {
   border-collapse: collapse;
 }
 .follow-page > section table {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
   width: 75%;
 }
 .follow-page > section table tr > td:nth-child(2) {
   width: 125px;
   text-align: center;
 }
+@media screen and (max-width: 1200px) and (min-width: 700px) {
+  .follow-page > section table tr > td:nth-child(2) {
+    width: 100px;
+  }
+}
+@media screen and (max-width: 699px) {
+  .follow-page > section table tr > td:nth-child(2) {
+    width: 75px;
+  }
+}
 .follow-page > section table td {
-  padding: 3px;
+  padding: 6px;
 }
 .follow-page > section form {
   display: flex;
@@ -355,95 +460,146 @@ a:hover {
 }
 .follow-page > section form input[type=submit]:hover {
   background-color: #ff5733;
+  transition: 0.3s;
 }
-.follow-page > section form input[type=text] {
-  border: 1px solid #ad8c85;
-  border-radius: 2px;
-  width: 50%;
-}
-.follow-page > section form input[type=text]:focus {
-  outline-color: #ad8c85;
-  outline-width: 1px;
-  outline-offset: 2px;
-  outline-style: solid;
-  border: 2px solid #ff8166;
-}
-
-.posts-page__posts {
-  border-radius: 5px;
-  border: 1px solid black;
-}
-
-.ticket-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.ticket-page__ticket {
-  width: 60%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  border: 1px solid #ad8c85;
-  margin-top: 50px;
-  background-color: #f9f6f5;
-  border-radius: 10px;
-}
-.ticket-page__ticket div {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-.ticket-page__ticket img {
-  max-width: 90%;
-  max-height: 400px;
-  aspect-ratio: initial;
-}
-.ticket-page__ticket__description {
-  width: 90%;
-}
-
-.new-ticket-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.new-ticket-page__content {
-  padding: 20px;
-  border: 1px solid #ad8c85;
-  margin-top: 50px;
-  background-color: #f9f6f5;
-  border-radius: 10px;
-}
-.new-ticket-page__content h2 {
-  text-align: center;
-}
-.new-ticket-page__content form {
-  margin-top: 20px;
-  display: flex;
-  height: 800px;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-}
-.new-ticket-page__content form input[type=text], .new-ticket-page__content form textarea {
-  border: 1px solid #ad8c85;
-  border-radius: 2px;
-}
-.new-ticket-page__content form input[type=text]:focus, .new-ticket-page__content form textarea:focus {
-  outline-color: #ad8c85;
-  outline-width: 1px;
-  outline-offset: 2px;
-  outline-style: solid;
-  border: 2px solid #ff8166;
-}
-.new-ticket-page__content form label {
+.follow-page > section form label {
   display: none;
 }
+.follow-page > section form select {
+  width: 300px;
+}
+@media screen and (max-width: 1200px) and (min-width: 700px) {
+  .follow-page > section form select {
+    width: 225px;
+  }
+}
+@media screen and (max-width: 699px) {
+  .follow-page > section form select {
+    width: 150px;
+  }
+}
 
-.ticket-answer-page .ticket button {
+.posts-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 50px;
+}
+.posts-page h2 {
+  margin-top: 25px;
+}
+
+.ticket-page, .review-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.new-post-page, .change-post-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.new-post-page__content, .change-post-page__content {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 20px 20px 20px;
+  border: 1px solid #ad8c85;
+  margin-top: 25px;
+  background-color: #f9f6f5;
+  border-radius: 10px;
+}
+@media screen and (max-width: 1200px) and (min-width: 700px) {
+  .new-post-page__content, .change-post-page__content {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 699px) {
+  .new-post-page__content, .change-post-page__content {
+    width: 80%;
+  }
+}
+.new-post-page__content h2, .change-post-page__content h2 {
+  text-align: center;
+}
+.new-post-page__content form, .change-post-page__content form {
+  width: 80%;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.new-post-page__content form input[type=text], .new-post-page__content form textarea, .change-post-page__content form input[type=text], .change-post-page__content form textarea {
+  border: 1px solid #ad8c85;
+  border-radius: 2px;
+}
+.new-post-page__content form input[type=text]:focus, .new-post-page__content form textarea:focus, .change-post-page__content form input[type=text]:focus, .change-post-page__content form textarea:focus {
+  outline-color: #ad8c85;
+  outline-width: 1px;
+  outline-offset: 2px;
+  outline-style: solid;
+  border: 2px solid #ff8166;
+  transition: 0.1s;
+}
+.new-post-page__content form textarea, .change-post-page__content form textarea {
+  width: 80%;
+  font-size: 15px;
+}
+.new-post-page__content form input[type=radio], .change-post-page__content form input[type=radio] {
+  accent-color: #ff5733;
+}
+.new-post-page__content form input[type=text], .change-post-page__content form input[type=text] {
+  font-size: 20px;
+  width: 60%;
+}
+.new-post-page__content form input::file-selector-button, .change-post-page__content form input::file-selector-button {
+  margin: 10px;
+  min-width: 150px;
+  border: none;
+  border-radius: 999px;
+  padding: 5px;
+  background-color: #ff8166;
+  color: white;
+  font-weight: 600;
+}
+.new-post-page__content form input::file-selector-button:hover, .change-post-page__content form input::file-selector-button:hover {
+  background-color: #ff5733;
+  transition: 0.3s;
+}
+.new-post-page__content form label, .change-post-page__content form label {
+  display: none;
+}
+.new-post-page__content form input#id_headline + label, .change-post-page__content form input#id_headline + label {
+  margin-top: 20px;
+  display: inline;
+}
+.new-post-page__content form #id_rating, .change-post-page__content form #id_rating {
+  margin-top: 0;
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.new-post-page__content form #id_rating label, .change-post-page__content form #id_rating label {
+  margin-top: 0;
+  display: block;
+}
+.new-post-page__content form *, .change-post-page__content form * {
+  margin-top: 10px;
+}
+.new-post-page__content .ticket, .change-post-page__content .ticket {
+  width: 100%;
+  margin-top: 0;
+  border: none;
+  border-bottom: 1px solid #ad8c85;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.new-post-page__content .ticket button, .change-post-page__content .ticket button {
   display: none;
 }
 

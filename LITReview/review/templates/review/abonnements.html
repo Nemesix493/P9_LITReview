@@ -2,7 +2,7 @@
 
 {% block main_content %}
 <main class="follow-page">
-    <section class="follow-page__follow">
+    <section>
         <h2>Suivre d'autre utilisateurs</h2>
         <form action="{% url 'follow_user' %}" method="post">
             {% csrf_token %}
@@ -10,7 +10,7 @@
             <input type="submit" value="Envoyer">
         </form>
     </section>
-    <section class="follow-page__following">
+    <section>
         <h2>Abonnements</h2>
         <table>
             {% for follow in follows %}
@@ -22,7 +22,7 @@
             {% endfor %}
         </table>
     </section>
-    <section class="follow-page__followers">
+    <section>
         <h2>Abonnés</h2>
         <table>
             {% for follower in followers %}

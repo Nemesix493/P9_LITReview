@@ -15,10 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from review import views
 from django.contrib.auth.views import LoginView, LogoutView
 from django.conf import settings
 from django.conf.urls.static import static
+
+from review import views
+from review.forms import CustomAuthenticationForm
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,7 +31,8 @@ urlpatterns = [
         extra_context={
             'page_name': 'Connexion',
             'menu': None
-        }
+        },
+        authentication_form=CustomAuthenticationForm
     ), name='signin'),
     path('flux/', views.flux, name='flux'),
     path('posts/', views.posts, name='posts'),
@@ -47,6 +50,7 @@ urlpatterns = [
 ]
 
 handler404 = views.custom_404
+handler403 = views.custom_403
 
 
 if settings.DEBUG:

@@ -6,7 +6,7 @@
         {% else %}
         <p>{{ticket.user.username|capfirst}} a demandez un ticket</p>
         {% endif%}
-        <p>{{ticket.time_created_as_text}}</p>
+        <p>{% display_datetime ticket.time_created %}</p>
     </div>
     <h2>{{ticket.title}}</h2>
     <p class="ticket__description">{{ticket.description}}</p>

@@ -1,3 +1,4 @@
+{% load review_extras %}
 <article class="review">
     <div>
         {% if review.user == request.user %}
@@ -5,10 +6,11 @@
         {% else %}
         <p>{{review.user.username|capfirst}} a publié une critique</p>
         {% endif%}
-        <p>{{review.time_created_as_text}}</p>
+        <p>{% display_datetime review.time_created %}</p>
     </div>
     <h2>{{review.headline}}</h2>
-    <p>{{review.body}}</p>
+    {% include 'review/partials/review_rating.html' with star=review.rating %}
+    <p class="review__description">{{review.body}}</p>
     {% include 'review/partials/ticket.html' with ticket=review.ticket %}
     {% if review.user == request.user %}
     <a href="{% url 'modify-review' review.id %}"><button class="classic-button">Modifier</button></a>

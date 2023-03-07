@@ -1,44 +1,28 @@
 .flux-page{
     display: flex;
-    justify-content: center;
-    &__content{
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 50px;
+    &__actions{
         width: 60%;
-        padding-bottom: 50px;
-        &__actions{
-            margin-top: 50px;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-            button{
-                @include classic-button;
-                width: 200px;
-                height: 40px;
+        margin-top: 50px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        .classic-button{
+            width: 200px;
+            height: 40px;
+        }
+        @include tablet{
+            width: 75%;
+        }
+        @include mobile{
+            width: 90%;
+            .classic-button{
+                width: 150px;
+                height: 50px;
             }
         }
     }
 }
 
-.flux-page__content__article{
-    padding: 20px;
-    border: 1px solid $personnal_grey;
-    border-radius: 10px;
-    margin-top: 50px;
-    background-color: $light_background_color;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    &__head{
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    img{
-        max-width: 90%;
-        max-height: 400px;
-        aspect-ratio: initial;
-    }
-    &__description{
-        width: 90%;
-    }
-}

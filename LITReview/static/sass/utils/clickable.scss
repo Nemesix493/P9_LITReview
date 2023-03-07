@@ -9,5 +9,6 @@
     font-weight: 600;
     &:hover{
         background-color: $princinpal_color;
+        transition: 0.3s;
     }
 }

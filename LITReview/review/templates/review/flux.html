@@ -4,18 +4,16 @@
 
 {% block main_content %}
 <main class="flux-page">
-    <section class="flux-page__content">
-        <div class="flux-page__content__actions">
-            <a href="{% url 'new-ticket' %}"><button>Demander une critique</button></a>
-            <a href="{% url 'new-review' %}"><button>Créer une critique</button></a>
-        </div>
-        {% for instance in posts %}
-        {% if instance|ticket_or_review == 'Review' %}
-        {% include 'review/partials/review.html' with review=instance %}
-        {% elif instance|ticket_or_review == 'Ticket'%}
-        {% include 'review/partials/ticket.html' with ticket=instance %}
-        {% endif%}
-        {% endfor %}
-    </section>
+    <div class="flux-page__actions">
+        <a href="{% url 'new-ticket' %}"><button class="classic-button">Demander une critique</button></a>
+        <a href="{% url 'new-review' %}"><button class="classic-button">Créer une critique</button></a>
+    </div>
+    {% for instance in posts %}
+    {% if instance|ticket_or_review == 'Review' %}
+    {% include 'review/partials/review.html' with review=instance %}
+    {% elif instance|ticket_or_review == 'Ticket'%}
+    {% include 'review/partials/ticket.html' with ticket=instance %}
+    {% endif%}
+    {% endfor %}
 </main>
 {% endblock %}

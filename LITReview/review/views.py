@@ -71,7 +71,7 @@ def follow_user(request):
         follow_user_form = FollowUserForm(request.user, request.POST)
         if follow_user_form.is_valid():
             follow_user_form.save()
-    return redirect('abonnements')
+    return redirect('follow')
 
 
 @login_required
@@ -80,7 +80,7 @@ def unfollow(request, id):
         request.user.follows.remove(User.objects.get(id=id))
     except User.DoesNotExist:
         raise Http404("Il semble que cet utilisateur n'existe pas !")
-    return redirect('abonnements')
+    return redirect('follow')
 
 
 @login_required
@@ -229,6 +229,16 @@ def custom_404(request, exception):
     context = {
         'page_name': '404 Not found',
         'menu': None,
-        'exception': exception
+        'exception': exception,
+        'image': 'img/404.jpg'
     }
-    return render(request, 'review/custom_404.html', context=context)
+    return render(request, 'review/custom_error.html', context=context)
+
+def custom_403(request, exception):
+    context = {
+        'page_name': '403 Forbidden',
+        'menu': None,
+        'exception': exception,
+        'image': 'img/403.svg'
+    }
+    return render(request, 'review/custom_error.html', context=context)

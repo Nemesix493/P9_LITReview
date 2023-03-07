@@ -4,7 +4,7 @@
 
 {% block main_content %}
 <main class="posts-page">
-    <h1>{{page_name}}</h1>
+    <h2>{{page_name}}</h2>
     {% for instance in posts %}
     {% if instance|ticket_or_review == 'Review' %}
     {% include 'review/partials/review.html' with review=instance %}

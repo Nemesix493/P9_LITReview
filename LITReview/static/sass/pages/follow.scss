@@ -12,6 +12,12 @@
         border-radius: 10px;
         padding-bottom: 30px;
         width: 40%;
+        @include tablet{
+            width: 60%;
+        }
+        @include mobile{
+            width: 80%;
+        }
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -24,13 +30,21 @@
             border-collapse: collapse;
         }
         table{
+            font-family: $arial;
+            font-size: 15px;
             width: 75%;
             tr > td:nth-child(2){
                 width: 125px;
                 text-align: center;
+                @include tablet{
+                    width: 100px;
+                }
+                @include mobile{
+                    width: 75px;
+                }
             }
             td{
-                padding: 3px;
+                padding: 6px;
             }
         }
         form{
@@ -41,10 +55,18 @@
                 margin-left: 20px;
                 &[type=submit]{
                     @include classic-button;
+                }                
+            }
+            label{
+                display: none;
+            }
+            select{
+                width: 300px;
+                @include tablet{
+                    width: 225px;
                 }
-                &[type=text]{
-                    @include input-text;
-                    width:50%;
+                @include mobile{
+                    width: 150px;
                 }
             }
         }

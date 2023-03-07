@@ -20,6 +20,12 @@ a{
     @include review;
     .ticket{
         width: 90%;
+        @include mobile{
+            width: 95%;
+            .classic-button{
+                width: 125px;
+            }
+        }
     }
 }
 

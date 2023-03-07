@@ -1,0 +1,83 @@
+.new-post-page, .change-post-page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__content{
+        width: 40%;
+        @include tablet{
+            width: 60%;
+        }
+        @include mobile{
+            width: 80%;
+        }
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 0 20px 20px 20px;
+        border: 1px solid $personnal_grey;
+        margin-top: 25px;
+        background-color: $light_background_color;
+        border-radius: 10px;
+        h2{
+            text-align: center;
+        }
+        form{
+            width:80%;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            input[type=text], textarea{
+                @include input-text;
+            }
+            textarea{
+                width:80%;
+                font-size: 15px;
+            }
+            input[type=radio]{
+                @include input-radio;
+            }
+            input[type=text]{
+                font-size: 20px;
+                width: 60%;
+            }
+            input::file-selector-button{
+                @include classic-button;
+            }
+            label{
+                display: none;
+            }
+            input#id_headline + label{
+                margin-top: 20px;
+                display: inline;
+            }
+            #id_rating{
+                margin-top: 0;
+                width: 90%;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                label{
+                    margin-top: 0;
+                    display: block;
+                }
+            }
+            *{
+                margin-top: 10px;
+            }
+        }
+        .ticket{
+            width: 100%;
+            margin-top: 0;
+            border: none;
+            border-bottom:1px solid $personnal_grey;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            button{
+                display: none;
+            }
+        }
+    }
+}

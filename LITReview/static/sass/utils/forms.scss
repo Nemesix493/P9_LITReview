@@ -7,5 +7,10 @@
         outline-offset: 2px;
         outline-style: solid;
         border: 2px solid $light_color;
+        transition: 0.1s;
     }
+}
+
+@mixin input-radio{
+    accent-color: $princinpal_color;
 }

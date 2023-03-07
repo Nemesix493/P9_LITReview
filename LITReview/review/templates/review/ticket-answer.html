@@ -1,13 +1,14 @@
 {% extends 'review/base.html' %}
 
 {% block main_content %}
-<main class="ticket-answer-page">
-    {% include 'review/partials/ticket.html'%}
-    <article class="ticket-answer-page__answer-form">
+<main class="new-post-page">
+    <article class="new-post-page__content">
+        {% include 'review/partials/ticket.html'%}
+        <h2>Critique</h2>
         <form action="" method="post">
             {% csrf_token %}
             {{form}}
-            <input type="submit" value="Envoyer">
+            <input type="submit" value="Envoyer" class="classic-button">
         </form>
     </article>
 </main>

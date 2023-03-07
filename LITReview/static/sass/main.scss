@@ -1,5 +1,6 @@
 // Utils
 
+@import "./utils/responsive";
 @import "./utils/colors";
 @import "./utils/fonts";
 @import "./utils/clickable";
@@ -23,7 +24,6 @@
 @import "./pages/flux";
 @import "./pages/follow";
 @import "./pages/posts";
-@import "./pages/ticket";
-@import "./pages/new-ticket";
-@import "./pages/ticket-answer";
+@import "./pages/single_post";
+@import "./pages/new_post";
 @import "./pages/error_page";
