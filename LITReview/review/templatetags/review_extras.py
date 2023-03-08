@@ -13,6 +13,10 @@ def ticket_or_review(instance):
 def all_reviewed(user):
     return [review.ticket for review in user.reviews.all()]
 
+@register.filter
+def is_reviewed(ticket):
+    return len(ticket.reviews.all()) < 1
+
 
 @register.simple_tag(takes_context=True)
 def feedback_menu(context, item_name):
@@ -24,6 +28,7 @@ def feedback_menu(context, item_name):
 @register.filter
 def filled_star(number):
     return range(number)
+
 
 @register.filter
 def empty_star(number):

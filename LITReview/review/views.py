@@ -3,6 +3,7 @@ import itertools
 from django.conf import settings
 from django.http import Http404
 from django.core.exceptions import PermissionDenied
+from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
@@ -35,20 +36,32 @@ def flux(request):
         request.user.reviews.all(),
         *[follow.reviews.all() for follow in request.user.follows.all()]
     ]
+    paginator = Paginator(
+        sorted(itertools.chain(*posts_list), key=lambda ticket: ticket.time_created, reverse=True),
+        5
+    )
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
     context = {
         'page_name': 'Flux',
         'menu': 'flux',
-        'posts': sorted(itertools.chain(*posts_list), key=lambda ticket: ticket.time_created, reverse=True)
+        'posts': page_obj
     }
     return render(request, 'review/flux.html', context=context)
 
 
 @login_required
 def posts(request):
+    paginator = Paginator(
+        sorted(itertools.chain(request.user.reviews.all(), request.user.tickets.all()), key=lambda instance: instance.time_created, reverse=True),
+        5
+    )
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
     context = {
         'page_name': 'Vos posts',
         'menu': 'posts',
-        'posts':sorted(itertools.chain(request.user.reviews.all(), request.user.tickets.all()), key=lambda instance: instance.time_created, reverse=True)
+        'posts': page_obj
     }
     return render(request, 'review/posts.html', context=context)
 
@@ -160,10 +173,11 @@ def modify_ticket(request, id):
     except Ticket.DoesNotExist:
         raise Http404("Il semble que ce ticket n'existe pas !")
     if curent_ticket.user != request.user:
-        raise PermissionDenied('Il semble que vous ne puissiez pas modifier ce ticket car vous n\'en n\'êtes pas l\'auteur')
+        raise PermissionDenied('Il semble que vous éssayé de modifier un ticket dont vous n\'êtes pas l\'auteur')
     context = {
         'page_name': 'Modifier un ticket',
         'menu': 'posts',
+        'ticket': curent_ticket
     }
     if request.method == 'POST':
         ticket_form = TicketForm(request.POST, request.FILES, instance=curent_ticket)
@@ -183,10 +197,12 @@ def modify_review(request, id):
     except Review.DoesNotExist:
         raise Http404("Il semble que cette critique n'existe pas !")
     if curent_review.user != request.user:
-        raise PermissionDenied('Il semble que vous ne puissiez pas modifier cette critique car vous n\'en n\'êtes pas l\'auteur')
+        raise PermissionDenied('Il semble que vous éssayé de modifier une critique dont vous n\'êtes pas l\'auteur')
     context = {
         'page_name': 'Modifier une critique',
         'menu': 'posts',
+        'ticket': curent_review.ticket,
+        'review': curent_review
     }
     if request.method == 'POST':
         review_form = ReviewForm(request.POST, instance=curent_review)
@@ -223,6 +239,30 @@ def new_review(request):
     context['review_form'] = ReviewForm()
     context['ticket_form'] = TicketForm()
     return render(request, 'review/new_review.html', context=context)
+
+
+@login_required
+def remove_review(request, id):
+    try:
+        curent_review = Review.objects.get(id=id)
+    except Review.DoesNotExist:
+        raise Http404("Il semble que cette critique n'existe pas !")
+    if curent_review.user != request.user:
+        raise PermissionDenied('Il semble que vous éssayé de supprimer une critique dont vous n\'êtes pas l\'auteur')
+    curent_review.delete()
+    return redirect('flux')
+
+
+@login_required
+def remove_ticket(request, id):
+    try:
+        curent_ticket = Ticket.objects.get(id=id)
+    except Ticket.DoesNotExist:
+        raise Http404("Il semble que ce ticket n'existe pas !")
+    if curent_ticket.user != request.user:
+        raise PermissionDenied('Il semble que vous éssayé de supprimer un ticket dont vous n\'êtes pas l\'auteur')
+    curent_ticket.delete()
+    return redirect('flux')
 
 
 def custom_404(request, exception):

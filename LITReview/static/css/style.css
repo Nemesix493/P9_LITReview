@@ -120,10 +120,15 @@ a:hover {
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
 }
 .review__description {
   width: 80%;
+}
+.review__foot {
+  justify-content: space-around;
+}
+.review__head {
+  justify-content: space-between;
 }
 .review .ticket {
   width: 90%;
@@ -165,7 +170,6 @@ a:hover {
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
 }
 .ticket img {
   max-width: 90%;
@@ -174,6 +178,12 @@ a:hover {
 }
 .ticket__description {
   width: 80%;
+}
+.ticket__foot {
+  justify-content: space-around;
+}
+.ticket__head {
+  justify-content: space-between;
 }
 
 .classic-button {
@@ -189,6 +199,22 @@ a:hover {
 .classic-button:hover {
   background-color: #ff5733;
   transition: 0.3s;
+}
+
+.pagination {
+  width: 300px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 50px;
+}
+.pagination a, .pagination p {
+  border-radius: 15px;
+  padding: 20px;
+}
+.pagination a:hover, .pagination p:hover {
+  background-color: #f9f6f5;
 }
 
 .login-page {
@@ -590,6 +616,15 @@ a:hover {
 }
 .new-post-page__content form *, .change-post-page__content form * {
   margin-top: 10px;
+}
+.new-post-page__content form .form-foot, .change-post-page__content form .form-foot {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.new-post-page__content form .form-foot a, .change-post-page__content form .form-foot a {
+  margin-top: 0;
 }
 .new-post-page__content .ticket, .change-post-page__content .ticket {
   width: 100%;

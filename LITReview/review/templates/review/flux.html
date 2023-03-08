@@ -15,5 +15,6 @@
     {% include 'review/partials/ticket.html' with ticket=instance %}
     {% endif%}
     {% endfor %}
+    {% include 'review/partials/pagination.html' with pagination=posts %}
 </main>
 {% endblock %}

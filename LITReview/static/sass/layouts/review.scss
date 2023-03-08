@@ -21,9 +21,14 @@
         width: 100%;
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
     }
     &__description{
         width: 80%;
+    }
+    &__foot{
+        justify-content: space-around;
+    }
+    &__head{
+        justify-content: space-between;
     }
 }

@@ -3,11 +3,15 @@
 {% block main_content %}
 <main class="change-post-page">
     <section class="change-post-page__content">
+        {% include 'review/partials/ticket.html'%}
         <h2>{{page_name}}</h2>
         <form action="" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{form}}
-            <input type="submit" value="Modifier" class="classic-button">
+            <div class="form-foot">
+                <input type="submit" value="Modifier" class="classic-button">
+                <a href="{% url 'remove-review' review.id %}"><button class="classic-button" type="button">Supprimer</button></a>
+            </div>
         </form>
     </section>
 </main>

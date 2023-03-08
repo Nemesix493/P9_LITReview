@@ -1,0 +1,15 @@
+@mixin pagination{
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 50px;
+    a, p{
+        border-radius: 15px;
+        padding: 20px;
+        &:hover{
+            background-color: $light_background_color;
+        }
+    }
+}

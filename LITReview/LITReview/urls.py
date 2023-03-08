@@ -23,7 +23,8 @@ from review import views
 from review.forms import CustomAuthenticationForm
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    #path('admin/', admin.site.urls),
+    path('', views.flux, name='default'),
     path('signup/', views.signup, name='signup'),
     path('signin/', LoginView.as_view(
         template_name='review/signin.html',
@@ -46,7 +47,9 @@ urlpatterns = [
     path('ticket-answer/<int:id>/', views.ticket_answer, name='ticket-answer'),
     path('review/<int:id>/', views.review, name='review'),
     path('update-review/<int:id>/', views.modify_review, name='modify-review'),
-    path('new-review/', views.new_review, name='new-review')
+    path('new-review/', views.new_review, name='new-review'),
+    path('remove-ticket/<int:id>/', views.remove_ticket, name='remove-ticket'),
+    path('remove-review/<int:id>/', views.remove_review, name='remove-review'),
 ]
 
 handler404 = views.custom_404
@@ -55,3 +58,6 @@ handler403 = views.custom_403
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    def test_404(request):
+        return views.custom_404(request, exception=Exception('Ici s\'affiche le message d\'erreur !'))
+    urlpatterns += [path('test-404/', test_404, name='test-404')]

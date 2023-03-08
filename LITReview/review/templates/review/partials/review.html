@@ -1,6 +1,6 @@
 {% load review_extras %}
 <article class="review">
-    <div>
+    <div class="review__head">
         {% if review.user == request.user %}
         <p>Vous avez publié une critique</p>
         {% else %}
@@ -12,7 +12,10 @@
     {% include 'review/partials/review_rating.html' with star=review.rating %}
     <p class="review__description">{{review.body}}</p>
     {% include 'review/partials/ticket.html' with ticket=review.ticket %}
-    {% if review.user == request.user %}
-    <a href="{% url 'modify-review' review.id %}"><button class="classic-button">Modifier</button></a>
-    {% endif%}
+    <div class="review__foot">
+        {% if review.user == request.user %}
+        <a href="{% url 'modify-review' review.id %}"><button class="classic-button">Modifier</button></a>
+        <a href="{% url 'remove-review' review.id %}"><button class="classic-button">Supprimer</button></a>
+        {% endif%}
+    </div>
 </article>

@@ -1,0 +1,17 @@
+{% if pagination.paginator.num_pages > 1 %}
+<div class="pagination">
+    {% if pagination.has_previous %}
+        {% if pagination.previous_page_number != 1 %}
+        <a href="?page=1">1</a>
+        {% endif %}
+        <a href="?page={{ pagination.previous_page_number }}">{{pagination.previous_page_number}}</a>
+    {% endif %}
+    <p>{{ pagination.number }}/{{pagination.paginator.num_pages}}</p>
+    {% if pagination.has_next %}
+        <a href="?page={{ pagination.next_page_number }}">{{pagination.next_page_number}}</a>
+        {% if pagination.paginator.num_pages != pagination.next_page_number%}
+        <a href="?page={{ pagination.paginator.num_pages }}">{{pagination.paginator.num_pages}}</a>
+        {% endif %}
+    {% endif %}
+</div>
+{% endif%}
