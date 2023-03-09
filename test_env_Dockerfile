@@ -5,6 +5,7 @@ COPY ./LITReview/ /app
 RUN pip install -r requirements.txt
 RUN rm db.sqlite3
 RUN python -m manage migrate
+RUN python -m manage init_local_test
 #RUN pip install gunicorn
 EXPOSE 8000
 CMD ["python", "-m", "manage", "runserver", "0.0.0.0:8000"]
