@@ -3,7 +3,7 @@
 {% block main_content %}
 <main class="follow-page">
     <section>
-        <h2>Suivre d'autre utilisateurs</h2>
+        <h2>Suivre d'autres utilisateurs</h2>
         <form action="{% url 'follow_user' %}" method="post">
             {% csrf_token %}
             {{form}}

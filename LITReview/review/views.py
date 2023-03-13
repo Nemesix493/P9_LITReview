@@ -173,7 +173,7 @@ def modify_ticket(request, id):
     except Ticket.DoesNotExist:
         raise Http404("Il semble que ce ticket n'existe pas !")
     if curent_ticket.user != request.user:
-        raise PermissionDenied('Il semble que vous éssayé de modifier un ticket dont vous n\'êtes pas l\'auteur')
+        raise PermissionDenied('Il semble que vous essayiez de modifier un ticket dont vous n\'êtes pas l\'auteur')
     context = {
         'page_name': 'Modifier un ticket',
         'menu': 'posts',
@@ -197,7 +197,7 @@ def modify_review(request, id):
     except Review.DoesNotExist:
         raise Http404("Il semble que cette critique n'existe pas !")
     if curent_review.user != request.user:
-        raise PermissionDenied('Il semble que vous éssayé de modifier une critique dont vous n\'êtes pas l\'auteur')
+        raise PermissionDenied('Il semble que vous essayiez de modifier une critique dont vous n\'êtes pas l\'auteur')
     context = {
         'page_name': 'Modifier une critique',
         'menu': 'posts',
@@ -248,7 +248,7 @@ def remove_review(request, id):
     except Review.DoesNotExist:
         raise Http404("Il semble que cette critique n'existe pas !")
     if curent_review.user != request.user:
-        raise PermissionDenied('Il semble que vous éssayé de supprimer une critique dont vous n\'êtes pas l\'auteur')
+        raise PermissionDenied('Il semble que vous essayiez de supprimer une critique dont vous n\'êtes pas l\'auteur')
     curent_review.delete()
     return redirect('flux')
 
@@ -260,7 +260,7 @@ def remove_ticket(request, id):
     except Ticket.DoesNotExist:
         raise Http404("Il semble que ce ticket n'existe pas !")
     if curent_ticket.user != request.user:
-        raise PermissionDenied('Il semble que vous éssayé de supprimer un ticket dont vous n\'êtes pas l\'auteur')
+        raise PermissionDenied('Il semble que vous essayiez de supprimer un ticket dont vous n\'êtes pas l\'auteur')
     curent_ticket.delete()
     return redirect('flux')
 

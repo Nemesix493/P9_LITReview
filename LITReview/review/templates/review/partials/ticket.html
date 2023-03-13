@@ -2,9 +2,9 @@
 <article class="ticket">
     <div class="ticket__head">
         {% if ticket.user == request.user %}
-        <p>Vous avez demandé un ticket</p>
+        <p>Vous avez publié un ticket</p>
         {% else %}
-        <p>{{ticket.user.username|capfirst}} a demandez un ticket</p>
+        <p>{{ticket.user.username|capfirst}} a publié un ticket</p>
         {% endif%}
         <p>{% display_datetime ticket.time_created %}</p>
     </div>
